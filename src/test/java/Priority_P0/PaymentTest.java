@@ -40,8 +40,9 @@ public class PaymentTest extends Base {
     @After
     public void refresh(){
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-    }
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}    }
 
     @Test
     @DisplayName("Given incorrect card number for Visa card, there should be adequate massage")
@@ -68,7 +69,7 @@ public class PaymentTest extends Base {
     }
     @Test
     @DisplayName("Given that not enough information is given, going further shouldn't be possible")
-    public void shouldNotAllowGoFurtherWithoutPaymentDetails(){
+    public void shouldNotAllowGoFurtherWithoutPaymentDetails() throws InterruptedException {
         paymentPage.moveToPayButton();
         assertEquals("Aby przejść dalej wybierz formę płatności i  uzupełnij wymagane pola",paymentPage.noCardInformation());
     }
@@ -111,8 +112,9 @@ public class PaymentTest extends Base {
     @DisplayName("The price should match with what was shown and chosen by user, considering delivery form and parcel size")
     public void shouldMatchPriceParcelToParcel_ParcelSizeA() throws InterruptedException {
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-        deliveryTypePage.chooseParcelToParcel()
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}        deliveryTypePage.chooseParcelToParcel()
                         .chooseParcelSizeA();
         recipientPage.enterName("Michał Tomczyk")
                 .enterMail("mitomczyk@inpost.pl")
@@ -130,8 +132,9 @@ public class PaymentTest extends Base {
     @DisplayName("The price should match with what was shown and chosen by user, considering delivery form and parcel size")
     public void shouldMatchPriceParcelToParcel_ParcelSizeB() throws InterruptedException {
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-        deliveryTypePage.chooseParcelToParcel()
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}        deliveryTypePage.chooseParcelToParcel()
                 .chooseParcelSizeB();
         recipientPage.enterName("Michał Tomczyk")
                 .enterMail("mitomczyk@inpost.pl")
@@ -149,8 +152,9 @@ public class PaymentTest extends Base {
     @Test
     public void shouldMatchPriceParcelToParcel_ParcelSizeC() throws InterruptedException {
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-        deliveryTypePage.chooseParcelToParcel()
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}        deliveryTypePage.chooseParcelToParcel()
                 .chooseParcelSizeC();
         recipientPage.enterName("Michał Tomczyk")
                 .enterMail("mitomczyk@inpost.pl")
@@ -168,8 +172,9 @@ public class PaymentTest extends Base {
     @DisplayName("The price should match with what was shown and chosen by user, considering delivery form and parcel size")
     public void shouldMatchPriceParcelToHome_ParcelSizeA() throws InterruptedException {
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-        deliveryTypePage.chooseParcelToHome()
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}        deliveryTypePage.chooseParcelToHome()
                 .chooseParcelSizeA();
         recipientPage.enterName("Mateusz Fąfara")
                 .enterMail("mfafara@test.pl")
@@ -190,8 +195,9 @@ public class PaymentTest extends Base {
     @DisplayName("The price should match with what was shown and chosen by user, considering delivery form and parcel size")
     public void shouldMatchPriceParcelToHome_ParcelSizeB() throws InterruptedException {
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-        deliveryTypePage.chooseParcelToHome()
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}        deliveryTypePage.chooseParcelToHome()
                 .chooseParcelSizeB();
         recipientPage.enterName("Mateusz Fąfara")
                 .enterMail("mfafara@test.pl")
@@ -212,7 +218,9 @@ public class PaymentTest extends Base {
     @DisplayName("The price should match with what was shown and chosen by user, considering delivery form and parcel size")
     public void shouldMatchPriceParcelToHome_ParcelSizeC() throws InterruptedException {
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        try {
+            Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch (Exception ignored){}
         deliveryTypePage.chooseParcelToHome()
                 .chooseParcelSizeC();
         recipientPage.enterName("Mateusz Fąfara")

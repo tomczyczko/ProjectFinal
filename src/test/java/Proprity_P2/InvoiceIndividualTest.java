@@ -35,9 +35,9 @@ public class InvoiceIndividualTest extends Base {
     @After
     public void refresh(){
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-
-
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}
     }
 
 
