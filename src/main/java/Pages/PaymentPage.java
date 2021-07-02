@@ -77,8 +77,11 @@ public class PaymentPage{
     private WebElement price;
 
 
-    public PaymentPage moveToPayButton(){
+    public PaymentPage moveToPayButton() throws InterruptedException {
+
         actionPage.moveToElement(payButtonInactive);
+        TimeUnit.SECONDS.sleep(2);
+
         return this;
 
     }

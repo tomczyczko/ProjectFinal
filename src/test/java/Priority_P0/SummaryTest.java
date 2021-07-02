@@ -24,8 +24,9 @@ public class SummaryTest extends Base {
     @After
     public void refresh(){
         Base.driver.get("https://test-oneclick-pl.easypack24.net/SzybkieNadania/");
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-    }
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}    }
 
     @Test
     @DisplayName("Parcel size should match the option chosen by the user")
@@ -341,7 +342,7 @@ public class SummaryTest extends Base {
                 .enterPhoneNumber("123456789");
         agreementPage.markTerms().goToSummary();
         assertEquals("https://test-oneclick-pl.easypack24.net/SzybkieNadania/assets/icons/address.svg?v=1.10.0",summaryPage.getDeliveryPhoto());
-        System.out.println("Szymon jest super");
+
     }
 
 }

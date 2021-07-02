@@ -61,10 +61,14 @@ public class SummaryAfterPaymentPage {
     private WebElement parcelSize;
 
     public void refreshPage() throws InterruptedException {
-        cookies.click();
-        waitPage.waitUntilElement(refresh);
+
         int count = 0;
+        try{
+            cookies.click();
+        }catch (Exception ignored){}
+
         try {
+
             waitPage.waitUntilElement(refresh);
             while (massage.getText().contains("Twoja transakcja nie została jeszcze zakończona")&& count < 5) {
                 refresh.click();

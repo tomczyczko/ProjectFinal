@@ -22,8 +22,9 @@ public class RecipientParcelToParcelTest extends Base {
     @After
     public void refresh(){
         Base.driver.navigate().refresh();
-        Base.driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
-    }
+        try {
+            driver.findElement(By.xpath("//button[@id='onetrust-accept-btn-handler']")).click();
+        }catch(Exception ignored){}    }
 
 
 
