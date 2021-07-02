@@ -341,7 +341,7 @@ public class SummaryTest extends Base {
                 .enterPhoneNumber("123456789");
         agreementPage.markTerms().goToSummary();
         assertEquals("https://test-oneclick-pl.easypack24.net/SzybkieNadania/assets/icons/address.svg?v=1.10.0",summaryPage.getDeliveryPhoto());
-        System.out.println("Szymon jest super");
+
     }
 
 }
